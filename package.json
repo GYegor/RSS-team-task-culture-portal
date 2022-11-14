@@ -53,6 +53,7 @@
     "react-iframe": "^1.8.0",
     "react-loader-spinner": "^3.1.2",
     "react-modal-video": "^1.2.2",
+    "react-share": "^4.4.1",
     "semantic-ui-flag": "^2.4.0",
     "uniqid": "^5.0.3",
     "vertical-timeline-component-for-react": "^1.0.6"

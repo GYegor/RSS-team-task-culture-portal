@@ -3,6 +3,9 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { withTranslation } from 'react-i18next';
+import {
+  TelegramIcon, OKIcon, TelegramShareButton, OKShareButton,
+} from 'react-share';
 
 
 class Header extends Component {
@@ -56,6 +59,8 @@ class Header extends Component {
             </NavDropdown.Item>
           </NavDropdown>
         </Navbar.Collapse>
+        <TelegramShareButton url={window.location.href || ''} title="React-shared title"><TelegramIcon round /></TelegramShareButton>
+        <OKShareButton url={window.location.href || ''} title="React-shared title"><OKIcon round /></OKShareButton>
       </Navbar>
     );
   }
