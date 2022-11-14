@@ -6,6 +6,7 @@ import { withTranslation } from 'react-i18next';
 import {
   TelegramIcon, OKIcon, TelegramShareButton, OKShareButton,
 } from 'react-share';
+import Button from 'react-bootstrap/Button';
 
 
 class Header extends Component {
@@ -16,6 +17,7 @@ class Header extends Component {
       language: 'Русский',
     };
     this.changeLanguage = this.changeLanguage.bind(this);
+    this.handleMobileShareClick = this.handleMobileShareClick.bind(this);
   }
 
   changeLanguage(flag, lang, key) {
@@ -25,6 +27,21 @@ class Header extends Component {
       flag: `${flag} flag`,
       language: lang,
     }));
+  }
+
+  handleMobileShareClick() {
+    // eslint-disable-next-line no-console
+    console.log(this.props);
+    if (navigator.share) {
+      navigator.share({
+        title: 'Yo Bro! Check this out!',
+        text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets",
+        url: window.location.href,
+      });
+    } else {
+      // eslint-disable-next-line no-console
+      console.log('Your browser doesn\'t support the Web Share API.');
+    }
   }
 
   render() {
@@ -59,8 +76,12 @@ class Header extends Component {
             </NavDropdown.Item>
           </NavDropdown>
         </Navbar.Collapse>
-        <TelegramShareButton url={window.location.href || ''} title="React-shared title"><TelegramIcon round /></TelegramShareButton>
-        <OKShareButton url={window.location.href || ''} title="React-shared title"><OKIcon round /></OKShareButton>
+        <div>
+          <TelegramShareButton url={window.location.href || ''} title="React-shared title"><TelegramIcon round /></TelegramShareButton>
+          <OKShareButton url={window.location.href || ''} title="React-shared title"><OKIcon round /></OKShareButton>
+          <Button variant="outline-info" size="sm" onClick={this.handleMobileShareClick}>MOBILE_SHARE</Button>
+        </div>
+
       </Navbar>
     );
   }
