@@ -34,7 +34,7 @@ class Header extends Component {
     console.log(this.props);
     if (navigator.share) {
       navigator.share({
-        // text: 'Yo Bro! Check this out!',
+        text: 'Yo Bro! Check this out!',
         title: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets\n",
         url: window.location.href,
       });
@@ -78,7 +78,7 @@ class Header extends Component {
         </Navbar.Collapse>
         <div>
           <TelegramShareButton url={window.location.href || ''} title="React-shared title"><TelegramIcon round /></TelegramShareButton>
-          <OKShareButton url={window.location.href || ''} title="React-shared title"><OKIcon round /></OKShareButton>
+          <OKShareButton url={window.location.href || ''}><OKIcon round /></OKShareButton>
           <Button variant="outline-info" size="sm" onClick={this.handleMobileShareClick}>MOBILE_SHARE</Button>
         </div>
 
